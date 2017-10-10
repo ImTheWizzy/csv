@@ -14,7 +14,7 @@ class FiltersController < ApplicationController
     i = 0
 
     CSV.foreach(csv_file_path) do |row|
-    	i++
+    	i += 1
     end
   	arraySize = i
     array = Array.new(arraySize)
@@ -22,7 +22,7 @@ class FiltersController < ApplicationController
 
     CSV.foreach(csv_file_path) do |row|
     	array[i] = row[0].to_f
-    	i++
+    	i += 1
     end
 
     i = 0
@@ -31,9 +31,9 @@ class FiltersController < ApplicationController
     while i <= arraySize do
     	while j < 30 do
     		result += array[j]
-    		j++
+    		j += 1
     	end
-    	i++
+    	i += 1
     end
   
     render plain: '%.2f' % result
